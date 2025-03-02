@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}게시글 목록{% endblock %}
+
+{% block content %}
+<h1 class="my-4">게시글 목록</h1>
+{% if user.is_authenticated %}
+    <a href="{% url 'jaram:post-create' %}" class="btn btn-primary mb-3">새 게시글 작성</a>
+    <ul class="list-group mt-3">
+        {% for post in posts %}
+            <li class="list-group-item">
+                <h5><a href="{% url 'jaram:post-detail' post.pk %}">{{ post.title }}</a></h5>
+                <p>{{ post.content|truncatewords:30 }}</p>
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid" style="max-width: 200px; margin-bottom: 10px;">
+                {% endif %}
+                <small class="text-muted">작성자: {{ post.author }} | 작성일: {{ post.created_at }}</small>
+            </li>
+        {% empty %}
+            <li class="list-group-item">게시글이 없습니다.</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>로그인 후 게시글 목록을 확인할 수 있습니다.</p>
+{% endif %}
+{% endblock %}

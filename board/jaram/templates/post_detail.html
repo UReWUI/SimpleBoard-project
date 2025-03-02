@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+{% if post.image %}
+    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid mb-3">
+{% endif %}
+<p>{{ post.content }}</p>
+<small class="text-muted">작성자: {{ post.author }} | 작성일: {{ post.created_at }}</small>
+
+<div class="mt-3">
+    {% if user.is_authenticated and user == post.author %}
+        <a href="{% url 'jaram:post-update' post.pk %}" class="btn btn-warning">수정</a>
+        <form action="{% url 'jaram:post-delete' post.pk %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</button>
+        </form>
+    {% endif %}
+</div>
+
+<a href="{% url 'jaram:post-list' %}" class="btn btn-secondary mt-3">목록으로 돌아가기</a>
+{% endblock %}
