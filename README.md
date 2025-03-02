@@ -22,4 +22,11 @@ Django를 사용하여 간단한 게시판 기능을 구현했습니다. 홈 화
   - 삭제 확인 절차
  
 ## 동작화면
-
+![로그인 전 홈 화면](https://github.com/UReWUI/SimpleBoard-project/blob/main/images/HomeBeforeLogin.png)
+![로그인 전 게시판 화면](https://github.com/UReWUI/SimpleBoard-project/blob/main/images/BoardBeforeLogin.png)
+![회원가입 화면](https://github.com/UReWUI/SimpleBoard-project/blob/main/images/Signup.png)
+![로그인 후 게시판 화면](https://github.com/UReWUI/SimpleBoard-project/blob/main/images/BoardList.png)
+![게시글 작성 화면](https://github.com/UReWUI/SimpleBoard-project/blob/main/images/PostCreate.png)
+![게시판 화면(미리보기 형식 목록)](https://github.com/UReWUI/SimpleBoard-project/blob/main/images/PostCreate.png)
+![게시글 삭제 확인 화면](https://github.com/UReWUI/SimpleBoard-project/blob/main/images/Delete.png)
+![작성자가 아닌 경우의 화면](https://github.com/UReWUI/SimpleBoard-project/blob/main/images/NotWriter.png)
